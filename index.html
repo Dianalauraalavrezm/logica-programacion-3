@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Factorial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calculadora de Factorial</h2>
+  <label for="numero">Ingresa un número:</label>
+  <input type="text" id="numero" placeholder="Ej: 5">
+  <button onclick="calcular()">Calcular Factorial</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcular() {
+      const input = document.getElementById("numero").value;
+      const numero = Number(input);
+      const resultadoDiv = document.getElementById("resultado");
+
+      // Validación
+      if (isNaN(numero) || !Number.isInteger(numero) || numero < 0) {
+        resultadoDiv.textContent = "⚠️ Ingresa un número entero válido y positivo.";
+        return;
+      }
+
+      // Cálculo del factorial
+      let factorial = 1;
+      for (let i = 2; i <= numero; i++) {
+        factorial *= i;
+      }
+
+      // Mostrar resultado
+      resultadoDiv.textContent = `El factorial de ${numero} es: ${factorial}`;
+    }
+  </script>
+
+</body>
+</html>
